@@ -1,0 +1,14 @@
+<div class="container">
+  <input type="text" [(ngModel)]="searchText" (input)="searchBooks()" placeholder="Search for books...">
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngFor="let book of books" class="book-item">
+    <img [src]="book.imageUrl" alt="Book Cover">
+    <div>
+      <h3>{{ book.title }}</h3>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Published:</strong> {{ book.publicationDate | date }}</p>
+      <p>{{ book.description }}</p>
+    </div>
+  </div>
+  <div *ngIf="books.length === 0 && !loading" class="no-results"></div>
+  </div>
